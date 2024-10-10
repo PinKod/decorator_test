@@ -13,16 +13,16 @@ int main() {
     char input[20];
     while(1) {
         scanf("%s", input);
-        if(strcmp(input, "exit") == 0) {
+        if(strcmp(input, "1") == 0) {
             break;
         }
-        else if (strcmp(input, "hot_printf") == 0) {
-            int fd = open("hot_file.o", O_RDONLY);
-
+        else if (strcmp(input, "2") == 0) {
+            int fd = open("hot_file", O_RDONLY);
+            printf("file descriptor: %d\n", fd);
             off_t size = lseek(fd, 0, SEEK_END);
-            void *addr = mmap(NULL, size, PROT_READ | PROT_EXEC, MAP_PRIVATE, fd, 0);
+              void *addr = mmap(NULL, size, PROT_READ | PROT_EXEC, MAP_PRIVATE, fd, 0);
 
-            void (*hot_printf)(void) = addr;
+              void (*hot_printf)(void) = addr;
 
             hot_printf();
 

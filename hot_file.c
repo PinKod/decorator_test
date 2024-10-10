@@ -3,10 +3,7 @@
 //
 #include <stdio.h>
 
-#include "common.h"
-
-
-void hot_printf() {
+static void hot_printf() {
     char buff[] = "hello world";
     printf("%s\n", buff);
 }
