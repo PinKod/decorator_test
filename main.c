@@ -18,7 +18,7 @@ int main() {
         }
         else if (strcmp(input, "2") == 0) {
             int fd = open("hot_file", O_RDONLY);
-            printf("file descriptor: %d\n", fd);
+            printf("file descriptor: %1d\n", fd);
             off_t size = lseek(fd, 0, SEEK_END);
               void *addr = mmap(NULL, size, PROT_READ | PROT_EXEC, MAP_PRIVATE, fd, 0);
 
